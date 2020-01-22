@@ -5,7 +5,7 @@ before_install:
     - docker build -t barrybt23/complex-test -f ./client/Dockerfile.dev ./client
     #multiple builds can be installed for testing purposes but we are using one.\
 script:
-    - docker run -e CI=true barrybt23/complex-test npm run test 
+    - docker run -e CI=true barrybt23/complex-test npm test 
 after_success:
     - docker build -t barrybt23/multi-client ./client
     - docker build -t barrybt23/multi-nginx ./nginx
