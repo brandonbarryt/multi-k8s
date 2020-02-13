@@ -16,3 +16,9 @@ spec:
                 -   name:   worker
                     image:  barrybt23/multi-worker
                     #/no ports required for worker because nothing is making direct requests
+                    env:
+                        -   name:   REDIS_HOST  
+                            value:  redis-cluster-ip-service
+                        -   name:   REDIS_PORT
+                            value:  6379
+                       
