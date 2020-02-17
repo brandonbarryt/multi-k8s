@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Ingress   
+metadata:
+    name: ingress-service
+    annotations:
+        #/this tells k8s to base controller on nginx
+        kubernetes.io/ingress.class:    nginx
+        #/this tells controller how to behave. in this case tells it to do a path rewrite
+        nginx.ingress.kubernetes.io/rewrite-target: /$1    
+spec:
+    rules:
+        -   http:
+                paths:
+                    -   path:   /?(.*)
+                        backend:
+                            serviceName:    client-cluster-ip-service
+                            servicePort:    3000
+                    -   path:   /api/?(.*)
+                        backend:
+                            serviceName:    server-cluster-ip-service
+                            servicePort:    5000
+                        
+    
+            
