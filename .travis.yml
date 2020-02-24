@@ -1,11 +1,14 @@
 sudo: required
 services:
     -   docker
+env:
+    global:
+        -   SHA=$(git rev-parse HEAD)
+        -   CLOUDSDK_CORE_DISABLE_PROMPTS=1
 before_install:
     #/  unencrypt the key to access GCP 
     -   openssl aes-256-cbc -K $encrypted_0c35eebf403c_key -iv $encrypted_0c35eebf403c_iv -in service-account.json.enc -out service-account.json -d
-    #/  instals the GCP SDK (I dont totally understand the commands)
-    -   export CLOUDSDK_CORE_DISABLE_PROMPTS=1
+    #/  installs the GCP SDK (I dont totally understand the commands)
     -   curl https://sdk.cloud.google.com | bash > /dev/null;
     -   source $HOME/google-cloud-sdk/path.bash.inc
     #/  gets the latest version of kubectl
@@ -22,3 +25,10 @@ before_install:
 script:
     #/  runs a basic test with proper CI flag
     -   docker run -e CI=true barrybt23/react-test npm run test
+deploy:
+    #/instructs Travis how to deploy app. in this case it will be a separate script
+    provider:   script
+    script: bash ./deploy.sh
+    #/this specifis the app should only be deployed on the master branch
+    on:
+        branch: master
