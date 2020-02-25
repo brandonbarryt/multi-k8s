@@ -14,7 +14,7 @@ class App extends Component {
             <img src={logo} className="App-logo" alt="logo" />
             <h1 className="App-title">FIB Calculator GKE</h1>
             <Link to="/">Home</Link>
-            <Link to="/otherpage">The Other Page</Link>
+            <Link to="/otherpage">The Second Page</Link>
           </header>
           <div>
             <Route exact path="/" component={Fib} />
