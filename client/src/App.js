@@ -12,9 +12,9 @@ class App extends Component {
         <div className="App">
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">FIB Calculator GKE</h1>
+            <h1 className="App-title">FIB Calculator GKE 2</h1>
             <Link to="/">Home</Link>
-            <Link to="/otherpage">The Second Page</Link>
+            <Link to="/otherpage">The Secondary Page</Link>
           </header>
           <div>
             <Route exact path="/" component={Fib} />

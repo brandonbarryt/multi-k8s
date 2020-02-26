@@ -5,7 +5,7 @@ export default () => {
   return (
     <div>
       I'm a Second Page for the FIB app: 
-      <Link to="/">Go back to home page!</Link>
+      <Link to="/">Go Back to Home Page!</Link>
     </div>
   );
 };
