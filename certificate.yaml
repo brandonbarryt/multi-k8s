@@ -8,7 +8,7 @@ spec:
         name:   letsencrypt-prod
         kind:   ClusterIssuer
     commonName: sysdevops.info
-    dndNames:
+    dnsNames:
         -   sysdevops.info
         -   www.sysdevops.info
     acme:
