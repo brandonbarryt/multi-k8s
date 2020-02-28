@@ -14,7 +14,7 @@ metadata:
 spec:
     tls:
         -   hosts:
-                -   sysdevops.infom
+                -   sysdevops.info
                 -   www.sysdevops.info
             secretName: sysdevops.info
     rules:
