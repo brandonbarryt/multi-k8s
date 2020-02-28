@@ -19,7 +19,7 @@ spec:
             secretName: sysdevops.info
     rules:
         -   host:   sysdevops.info
-        -   http:
+            http:
                 paths:
                     -   path:   /?(.*)
                         backend:
@@ -30,7 +30,7 @@ spec:
                             serviceName:    server-cluster-ip-service
                             servicePort:    5000
         -   host:   www.sysdevops.info
-        -   http:
+            http:
                 paths:
                     -   path:   /?(.*)
                         backend:
