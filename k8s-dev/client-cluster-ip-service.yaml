@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: client-cluster-ip-service
+spec:
+    type: ClusterIP
+    selector:
+        #/this is arbitrary but must match the pod we want to direct to
+        component: web
+    ports:
+        #/port other pods would use
+        -   port: 3000
+        #/this is the targeted pod
+            targetPort: 3000
+            
