@@ -15,6 +15,10 @@ spec:
             containers:
                 -   name:   server
                     image:  barrybt23/multi-server
+                    resources:
+                        limits:
+                            memory: "512Mi"
+                            cpu:    "500m"
                     ports:
                         -   containerPort:  5000
                     env:

@@ -15,5 +15,9 @@ spec:
             containers:
                 -   name:   client
                     image:  barrybt23/multi-client
+                    resources:
+                        limits:
+                            memory: "512Mi"
+                            cpu:    "500m"
                     ports:
                         -   containerPort:  3000
